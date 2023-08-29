@@ -1,0 +1,117 @@
+/*custom variable to be used as a macro in the other css definitions*/
+:root {
+    --white: #FFFFFF;
+    --black: #030303;
+    --medium-brown: #7A746E;
+    --light-cream: #FFF7F0;
+    --galactic-blue: #755CDE;
+    --summer-yellow: #F6A560;
+    --pink: #F39E9E;
+    --light-red: #EB7565;
+    --cyan: #61C4B7;
+    --dark-purple: #552049;
+
+    --heading-large-size: 5.6rem;
+    --heading-large-mobile-size: 3.6rem;
+    --heading-medium-size: 4.0rem;
+    --heading-small-size: 3.2rem;
+    --body-size: 1.8rem;
+    --body-line-height: 2.8rem;
+}
+
+
+html {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.8rem;
+    font-weight: 500;
+    background-color: var(--light-cream);
+    margin-left: 1.6rem;
+    margin-right: 1.6rem;
+    color: var(--medium-brown);
+    
+    width: 375px; /* for development only */
+}
+
+h1 {
+    font-size: var(--heading-large-mobile-size);
+    text-align: center;
+}
+
+img.logo {
+    height: 4.8rem;
+    width: 4.8rem;
+}
+
+button.consultation {
+    color: var(--light-cream);
+    background-color: var(--black);
+    height: 4.4rem;
+    width: 17.6rem;
+    border: none;
+    border-radius: 28px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.6rem;
+}
+
+section.slides-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 2.5rem;
+}
+
+.grid-slide {
+    border: solid black;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    background-color: var(--galactic-blue);
+    padding: 2.4rem;
+}
+
+.grid-slide-1 {
+    grid-row: 1 / span 2;
+    grid-column: 1 / span 2;
+}
+
+.grid-slide-2 {
+    background-color: var(--summer-yellow);
+}
+
+.grid-slide-3 {
+    background-color: var(--pink);
+}
+
+.grid-slide-4 {
+    background-color: var(--light-red);
+}
+
+.grid-slide-5 {
+    background-color: var(--cyan);
+}
+
+.grid-slide-6 {
+    background-color: var(--dark-purple);
+}
+
+.grid-slide-4,.grid-slide-5,.grid-slide-6 {
+    grid-column: 1 / span 2;
+}
+
+
+
+.grid-slide span {
+    align-self: flex-start;
+    color: var(--white);
+}
