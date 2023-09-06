@@ -1,5 +1,8 @@
 /*custom variable to be used as a macro in the other css definitions*/
-:root {
+html {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 62.5%;
+    
     --white: #FFFFFF;
     --black: #030303;
     --medium-brown: #7A746E;
@@ -11,47 +14,93 @@
     --cyan: #61C4B7;
     --dark-purple: #552049;
 
+    /* Default values for mobile. Tablet and desktop will be overridden. */
     --heading-large-size: 5.6rem;
-    --heading-large-mobile-size: 3.6rem;
     --heading-medium-size: 4.0rem;
     --heading-small-size: 3.2rem;
     --body-size: 1.8rem;
     --body-line-height: 2.8rem;
 }
 
-html {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 62.5%;
+/* desktop - tablet - mobile
+H1 L(56)   - 44 - 36
+H2 M(40)   - S  - 26
+H3 S(32)   - S  - 24
+H4 M(40)   - S  - 26
+
+*/
+
+/* mobile */
+h1 {
+    font-size: 3.6rem;
+}
+
+h2 {
+    font-size: 2.6rem;
+}
+
+.my-work h2 {
+    font-size: 2.4rem;
+}
+
+/* tablet - todo: update breakpoint */
+@media screen and (min-width: 401) and (max-width: 800) {
+    h1 {
+        font-size: 4.4rem;
+    }
+    
+    h2 {
+        font-size: var(--heading-small-size);
+    }
+}
+
+/* desktop */
+@media screen and (min-width: 801) {
+    h1 {
+        font-size: var(--heading-large-size);
+    }
+    
+    h2 {
+        font-size: var(--heading-medium-size);
+    }
+
+    .my-work h2 {
+        font-size: var(--heading-small-size);
+    }
 }
 
 body {
     font-weight: 500;
     background-color: var(--light-cream);
-    margin-left: 1.6rem;
-    
-    margin-right: 1.6rem;
+    margin-left: 8px;
+    margin-right: 8px;
     color: var(--medium-brown);
     
-    min-width: 350px; /* for development only */
+    min-width: 343px; /* for development only */
     max-width: 1111px;
 }
 
 p {
     font-size: 1.8rem;
     line-height: var(--body-line-height);
-    margin: 0;
+    margin: 2.4rem 0;
 }
 
 section {
-    margin: 3.2rem;
+    /* Vertical margin in rem to scale with font size  */
+    /* Horizontal margin in px to not squeeze text as font size grows */
+    margin: 3.2rem 32px;
     text-align: center;
 }
 
-h1 {
+h1,h2 {
     color: var(--black);
-    font-size: var(--heading-large-mobile-size);
+}
+
+h1 {
     text-align: center;
     margin: 0 0 1.6rem 0;
+    min-width: 288px;
 }
 
 img.logo {
@@ -61,12 +110,16 @@ img.logo {
 
 button.consultation {
     color: var(--light-cream);
-    background-color: var(--black);
+    background-color: var(--light-red);
     height: 4.4rem;
     width: 17.6rem;
     border: none;
     border-radius: 28px;
     font-weight: bold;
+}
+
+nav button.consultation {
+    background-color: var(--black);
 }
 
 nav {
@@ -78,7 +131,7 @@ nav {
 /* intro */
 
 section.intro p {
-    margin: 0 1.3rem 0 1.3rem;
+    margin: 0 13px 0 13px;
 }
 
 /* slides */
@@ -87,7 +140,7 @@ section.slides-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(6, 1fr);
-    gap: 2.5rem;
+    gap: 25px;
 }
 
 .grid-slide {
@@ -98,7 +151,12 @@ section.slides-grid {
     align-items: flex-end;
     justify-content: space-between;
     background-color: var(--galactic-blue);
-    padding: 2.4rem;
+    padding: 24px;
+}
+
+.grid-slide img {
+    max-height: 50%;
+    max-width: 50%;
 }
 
 .grid-slide span {
@@ -142,19 +200,37 @@ section.slides-grid {
 
 /* amy */
 
-.amy {
+section.amy {
     display: flex;
+    flex-direction: column;
+    margin: 100px 0 100px 0;
 }
 
 .amy-photo {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 10px;
-    padding-right: 125px;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
+    /* width: 10px; */
+    padding: 38px;
+    min-width: 300px;
 }
 
 .amy-description {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* book-a-call */
+section.book-a-call {
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 0;
+}
+
+.book-a-call h2 {
+    color: white;
 }
